@@ -45,6 +45,7 @@ final public class Logger: Logging {
 extension Logger {
     
     public struct OS {
+        
         let subsystem: String
         let category: String
         
@@ -52,6 +53,7 @@ extension Logger {
             self.subsystem = subsystem
             self.category = category
         }
+        
     }
     
     private func printLog(type: OSLogType, message: String) {
