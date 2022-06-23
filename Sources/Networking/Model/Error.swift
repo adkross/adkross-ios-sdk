@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Alamofire
 
-struct ErrorModel: Decodable {
+struct ErrorModel: Decodable, Error {
     
     var code: ErrorCode?
     

@@ -7,6 +7,9 @@
 
 import Foundation
 
-struct Adkross {
+public struct Adkross {
+    
+    public func startWith(apiKey: String, appKey: String) {
+    }
     
 }
