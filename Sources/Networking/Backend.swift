@@ -15,15 +15,17 @@ struct Backend {
         self.network = network
     }
     
-    func check(token: String) {
+    func check(completion: @escaping (String) -> Void) {
         network.request(
-            endpoint: AdkrossEndpoint.start,
-            requestType: EmptyRequest.self,
-            responseType: EmptyResponse.self) { response in
+            endpoint: AdkrossEndpoint.start(request: CheckModel.Request()),
+            requestType: CheckModel.Request.self,
+            responseType: CheckModel.Response.self) { response in
                 
                 switch response {
                 case .success(let model):
-                    break
+                    guard let token = model.token else { return }
+                    
+                    completion(token)
                 case .failure(let error):
                     break
                 }

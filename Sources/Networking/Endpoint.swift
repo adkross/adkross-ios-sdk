@@ -12,12 +12,12 @@ protocol Endpoint {
     var url: String { get }
     
     var request: Encodable? { get }
-        
+            
 }
 
 enum AdkrossEndpoint: Endpoint {
     
-    case start
+    case start(request: CheckModel.Request)
     
     var url: String {
         switch self {
@@ -28,8 +28,8 @@ enum AdkrossEndpoint: Endpoint {
     
     var request: Encodable? {
         switch self {
-        case .start:
-            return nil
+        case .start(let request):
+            return request
         }
     }
     

@@ -18,17 +18,20 @@ class HttpClient: Networking {
  
     private let session = Alamofire.Session()
     private let apiKey: String
+    private let appKey: String
     private let logger: Logging
     private let parser: Parsing
     private let encoder: JSONEncoder
     
     init(
         apiKey: String,
+        appKey: String,
         logger: Logging,
         parser: Parsing,
         encoder: JSONEncoder
     ) {
         self.apiKey = apiKey
+        self.appKey = appKey
         self.logger = logger
         self.parser = parser
         self.encoder = encoder
@@ -39,13 +42,17 @@ class HttpClient: Networking {
         logger.logWith(info: "Network call for url: \(endpoint.url)")
         
         encoder.dateEncodingStrategy = .iso8601
+        
+        let header = HTTPHeaders(HttpHeader.get(
+            with: apiKey,
+            appKey: appKey))
             
         session.request(
             "\(endpoint.url)",
             method: .post,
             parameters: endpoint.request as? RequestModel,
             encoder: .json(encoder: encoder),
-            headers: HTTPHeaders(HttpHeader.get(with: self.apiKey)))
+            headers: header)
             .validate()
             .responseData(completionHandler: { responseData in
                 if let error = responseData.error {

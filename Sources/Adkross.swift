@@ -9,7 +9,31 @@ import Foundation
 
 public struct Adkross {
     
-    public func startWith(apiKey: String, appKey: String) {
+    private static var backend: Backend?
+    private static var token: String?
+    
+    public static func startWith(apiKey: String, appKey: String) {
+        let logger = Logger(osLog: Logger.OS(subsystem: "com.adkross", category: "ios-sdk"))
+        let parser = Parser(logger: logger)
+        let network = HttpClient(
+            apiKey: apiKey,
+            appKey: appKey,
+            logger: logger,
+            parser: parser,
+            encoder: JSONEncoder())
+        
+        backend = Backend(network: network)
     }
     
+}
+
+// MARK: - Network Calls
+
+extension Adkross {
+    
+    public static func check() {
+        Self.backend?.check(completion: { token in
+            Self.token = token
+        })
+    }
 }
