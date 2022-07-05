@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MainCheckModel.swift
 //  
 //
 //  Created by Furkan Kaplan on 30.06.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CheckModel {
+struct MainStartModel {
     
     struct Request: Encodable {
         

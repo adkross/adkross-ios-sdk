@@ -12,7 +12,7 @@ struct Environment {
     static let host: String = "https://api.adkross.com"
     
     struct Service {
-        static let start: String = "/start"
+        static let main: String = "/main"
     }
     
 }

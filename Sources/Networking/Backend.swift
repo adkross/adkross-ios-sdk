@@ -20,25 +20,19 @@ struct Backend {
         self.network = network
     }
     
-    func check(completion: @escaping (String) -> Void) {
+    func check(completion: @escaping (String?) -> Void) {
         network?.request(
-            endpoint: AdkrossEndpoint.start(request: CheckModel.Request()),
-            requestType: CheckModel.Request.self,
-            responseType: CheckModel.Response.self) { response in
-                
+            endpoint: AdkrossEndpoint.mainStart(request: MainStartModel.Request()),
+            requestType: MainStartModel.Request.self,
+            responseType: MainStartModel.Response.self) { response in
                 switch response {
                 case .success(let model):
-                    guard let token = model.token else { return }
-                    
-                    completion(token)
+                    completion(model.token)
                 case .failure(let error):
+                    completion(nil)
                     break
                 }
             }
     }
     
 }
-
-struct EmptyRequest: Encodable { }
-
-struct EmptyResponse: Decodable { }

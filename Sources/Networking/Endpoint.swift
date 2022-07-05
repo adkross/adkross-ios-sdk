@@ -17,18 +17,18 @@ protocol Endpoint {
 
 enum AdkrossEndpoint: Endpoint {
     
-    case start(request: CheckModel.Request)
+    case mainStart(request: MainStartModel.Request)
     
     var url: String {
         switch self {
-        case .start:
-            return "\(Environment.host)\(Environment.Service.start)"
+        case .mainStart:
+            return "\(Environment.host)\(Environment.Service.main)/start"
         }
     }
     
     var request: Encodable? {
         switch self {
-        case .start(let request):
+        case .mainStart(let request):
             return request
         }
     }

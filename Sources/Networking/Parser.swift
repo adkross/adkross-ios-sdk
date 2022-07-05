@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Parsing {
-    func parseResponse<ResponseModel: Decodable>(data: Data, forType type: ResponseModel.Type, completion: @escaping(GenericResponseModel<ResponseModel>) -> Void)
+    func parseResponse<Response: Decodable>(data: Data, forType type: Response.Type, completion: @escaping(GenericResponse<Response>) -> Void)
 }
 
 struct Parser: Parsing {
@@ -19,9 +19,9 @@ struct Parser: Parsing {
         self.logger = logger
     }
     
-    func parseResponse<ResponseModel>(data: Data, forType type: ResponseModel.Type, completion: @escaping (GenericResponseModel<ResponseModel>) -> Void) where ResponseModel : Decodable {
+    func parseResponse<Response>(data: Data, forType type: Response.Type, completion: @escaping (GenericResponse<Response>) -> Void) where Response : Decodable {
         do {
-            let value = try JSONDecoder().decode(GenericResponseModel<ResponseModel>.self, from: data)
+            let value = try JSONDecoder().decode(GenericResponse<Response>.self, from: data)
             completion(value)
         } catch {
             logger.logWith(fault: "JSON decoding issue as response parsing.")
