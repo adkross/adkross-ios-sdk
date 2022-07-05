@@ -15,12 +15,11 @@ public struct Adkross {
     public static func startWith(apiKey: String, appKey: String) {
         let logger = Logger(osLog: Logger.OS(subsystem: "com.adkross", category: "ios-sdk"))
         let parser = Parser(logger: logger)
-        let network = HttpClient(
-            apiKey: apiKey,
-            appKey: appKey,
-            logger: logger,
-            parser: parser,
-            encoder: JSONEncoder())
+        let network = HttpClient(apiKey: apiKey,
+                                 appKey: appKey,
+                                 logger: logger,
+                                 parser: parser,
+                                 encoder: JSONEncoder())
         
         backend = Backend(network: network)
     }

@@ -9,14 +9,19 @@ import Foundation
 
 struct Backend {
     
-    private let network: Networking
+    private let network: Networking?
+    
+    private init() {
+        // Not allowed to create an instance with default constructor
+        network = nil
+    }
     
     init(network: Networking) {
         self.network = network
     }
     
     func check(completion: @escaping (String) -> Void) {
-        network.request(
+        network?.request(
             endpoint: AdkrossEndpoint.start(request: CheckModel.Request()),
             requestType: CheckModel.Request.self,
             responseType: CheckModel.Response.self) { response in
