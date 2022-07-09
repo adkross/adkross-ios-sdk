@@ -1,5 +1,5 @@
 //
-//  MainCheckModel.swift
+//  MainStartModel.swift
 //  
 //
 //  Created by Furkan Kaplan on 30.06.2022.

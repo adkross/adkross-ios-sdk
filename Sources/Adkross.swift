@@ -7,12 +7,39 @@
 
 import Foundation
 
-public struct Adkross {
+// MARK: SDK Initialization
+
+public class Adkross {
     
-    private static var backend: Backend?
-    private static var token: String?
+    private let backend: Backend
     
-    public static func startWith(apiKey: String, appKey: String) {
+    private var token: String?
+    
+    public static var shared: Adkross {
+        guard let adkross = adkross else {
+            fatalError("Adkross SDK not initialized")
+        }
+        
+        return adkross
+    }
+    
+    private static var adkross: Adkross?
+    
+    init(backend: Backend) {
+        self.backend = backend
+    }
+    
+    static func setDefaultInstance(_ adkross: Adkross) {
+        Self.adkross = adkross
+    }
+
+}
+
+// MARK: - Configuratiın Adkross
+
+public extension Adkross {
+    
+    static func startWith(apiKey: String, appKey: String) {
         let logger = Logger(osLog: Logger.OS(subsystem: "com.adkross", category: "ios-sdk"))
         let parser = Parser(logger: logger)
         let network = HttpClient(apiKey: apiKey,
@@ -20,19 +47,27 @@ public struct Adkross {
                                  logger: logger,
                                  parser: parser,
                                  encoder: JSONEncoder())
+        let backend = Backend(network: network, logger: logger)
         
-        backend = Backend(network: network)
+        let adkross = Adkross(backend: backend)
+                
+        setDefaultInstance(adkross)
     }
     
 }
 
 // MARK: - Network Calls
 
-extension Adkross {
+public extension Adkross {
     
-    public static func check() {
-        Self.backend?.check(completion: { token in
-            Self.token = token
+    func check() {
+        backend.check(completion: { token in
+            self.token = token
         })
     }
+    
+    func load(campaignKey: String? = nil, completion: @escaping(GenericResponse<CampaignLoadModel.Response>) -> Void) {
+        backend.load(campaignKey: campaignKey, completion: completion)
+    }
+    
 }

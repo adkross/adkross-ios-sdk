@@ -13,6 +13,7 @@ struct Environment {
     
     struct Service {
         static let main: String = "/main"
+        static let campaing: String = "/campaign"
     }
     
 }

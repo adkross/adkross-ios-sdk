@@ -9,30 +9,45 @@ import Foundation
 
 struct Backend {
     
-    private let network: Networking?
-    
-    private init() {
-        // Not allowed to create an instance with default constructor
-        network = nil
-    }
-    
-    init(network: Networking) {
+    private let network: Networking
+    private let logger: Logging
+
+    init(
+        network: Networking,
+        logger: Logging
+    ) {
         self.network = network
+        self.logger = logger
     }
     
     func check(completion: @escaping (String?) -> Void) {
-        network?.request(
+        network.request(
             endpoint: AdkrossEndpoint.mainStart(request: MainStartModel.Request()),
             requestType: MainStartModel.Request.self,
             responseType: MainStartModel.Response.self) { response in
                 switch response {
                 case .success(let model):
                     completion(model.token)
-                case .failure(let error):
+                case .failure:
                     completion(nil)
-                    break
+                    logger.logWith(error: "Token not received")
                 }
             }
+    }
+    
+    func load(campaignKey: String? = nil, completion: @escaping(GenericResponse<CampaignLoadModel.Response>) -> Void) {
+        let request = CampaignLoadModel.Request(campaignKey: campaignKey)
+        
+        network.request(endpoint: AdkrossEndpoint.campaingLoad(request: request),
+                         requestType: CampaignLoadModel.Request.self,
+                        responseType: GenericResponse<CampaignLoadModel.Response>.self, completion: { response in
+            switch response {
+            case .success(let model):
+                completion(model)
+            case .failure:
+                logger.logWith(error: "Campaign not loaded properly. Ad will not be shown.")
+            }
+        })
     }
     
 }
