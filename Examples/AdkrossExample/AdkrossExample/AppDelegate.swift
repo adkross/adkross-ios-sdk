@@ -2,10 +2,11 @@
 //  AppDelegate.swift
 //  AdkrossExample
 //
-//  Created by Furkan Kaplan on 9.07.2022.
+//  Created by Furkan Kaplan on 14.07.2022.
 //
 
 import UIKit
+import adkross_ios_sdk
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Adkross.startWith(apiKey: "", appKey: "")
         return true
     }
 

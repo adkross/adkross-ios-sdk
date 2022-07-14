@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  AdkrossExample
 //
-//  Created by Furkan Kaplan on 9.07.2022.
+//  Created by Furkan Kaplan on 14.07.2022.
 //
 
 import UIKit

@@ -7,112 +7,125 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B6BBEBC52879D6E1000DEA21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBEBC42879D6E1000DEA21 /* AppDelegate.swift */; };
-		B6BBEBC72879D6E1000DEA21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBEBC62879D6E1000DEA21 /* SceneDelegate.swift */; };
-		B6BBEBC92879D6E1000DEA21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBEBC82879D6E1000DEA21 /* ViewController.swift */; };
-		B6BBEBCC2879D6E1000DEA21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BBEBCA2879D6E1000DEA21 /* Main.storyboard */; };
-		B6BBEBCE2879D6E3000DEA21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBEBCD2879D6E3000DEA21 /* Assets.xcassets */; };
-		B6BBEBD12879D6E3000DEA21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BBEBCF2879D6E3000DEA21 /* LaunchScreen.storyboard */; };
+		B64112562880265900601462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64112552880265900601462 /* AppDelegate.swift */; };
+		B64112582880265900601462 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64112572880265900601462 /* SceneDelegate.swift */; };
+		B641125A2880265900601462 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64112592880265900601462 /* ViewController.swift */; };
+		B641125D2880265900601462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B641125B2880265900601462 /* Main.storyboard */; };
+		B641125F2880265C00601462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B641125E2880265C00601462 /* Assets.xcassets */; };
+		B64112622880265C00601462 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B64112602880265C00601462 /* LaunchScreen.storyboard */; };
+		B641126D288026FB00601462 /* adkross-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = B641126C288026FB00601462 /* adkross-ios-sdk */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B6BBEBC12879D6E1000DEA21 /* AdkrossExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdkrossExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6BBEBC42879D6E1000DEA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6BBEBC62879D6E1000DEA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B6BBEBC82879D6E1000DEA21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B6BBEBCB2879D6E1000DEA21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B6BBEBCD2879D6E3000DEA21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B6BBEBD02879D6E3000DEA21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B6BBEBD22879D6E3000DEA21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6BBEBD92879D718000DEA21 /* adkross-ios-sdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "adkross-ios-sdk"; path = ../..; sourceTree = "<group>"; };
+		B64112522880265900601462 /* AdkrossExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdkrossExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B64112552880265900601462 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B64112572880265900601462 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B64112592880265900601462 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B641125C2880265900601462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B641125E2880265C00601462 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B64112612880265C00601462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B64112632880265C00601462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B641126A2880267300601462 /* adkross-ios-sdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "adkross-ios-sdk"; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B6BBEBBE2879D6E1000DEA21 /* Frameworks */ = {
+		B641124F2880265900601462 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B641126D288026FB00601462 /* adkross-ios-sdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B6BBEBB82879D6E1000DEA21 = {
+		B64112492880265900601462 = {
 			isa = PBXGroup;
 			children = (
-				B6BBEBD82879D718000DEA21 /* Packages */,
-				B6BBEBC32879D6E1000DEA21 /* AdkrossExample */,
-				B6BBEBC22879D6E1000DEA21 /* Products */,
+				B64112692880267300601462 /* Packages */,
+				B64112542880265900601462 /* AdkrossExample */,
+				B64112532880265900601462 /* Products */,
+				B641126B288026FB00601462 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		B6BBEBC22879D6E1000DEA21 /* Products */ = {
+		B64112532880265900601462 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B6BBEBC12879D6E1000DEA21 /* AdkrossExample.app */,
+				B64112522880265900601462 /* AdkrossExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B6BBEBC32879D6E1000DEA21 /* AdkrossExample */ = {
+		B64112542880265900601462 /* AdkrossExample */ = {
 			isa = PBXGroup;
 			children = (
-				B6BBEBC42879D6E1000DEA21 /* AppDelegate.swift */,
-				B6BBEBC62879D6E1000DEA21 /* SceneDelegate.swift */,
-				B6BBEBC82879D6E1000DEA21 /* ViewController.swift */,
-				B6BBEBCA2879D6E1000DEA21 /* Main.storyboard */,
-				B6BBEBCD2879D6E3000DEA21 /* Assets.xcassets */,
-				B6BBEBCF2879D6E3000DEA21 /* LaunchScreen.storyboard */,
-				B6BBEBD22879D6E3000DEA21 /* Info.plist */,
+				B64112552880265900601462 /* AppDelegate.swift */,
+				B64112572880265900601462 /* SceneDelegate.swift */,
+				B64112592880265900601462 /* ViewController.swift */,
+				B641125B2880265900601462 /* Main.storyboard */,
+				B641125E2880265C00601462 /* Assets.xcassets */,
+				B64112602880265C00601462 /* LaunchScreen.storyboard */,
+				B64112632880265C00601462 /* Info.plist */,
 			);
 			path = AdkrossExample;
 			sourceTree = "<group>";
 		};
-		B6BBEBD82879D718000DEA21 /* Packages */ = {
+		B64112692880267300601462 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				B6BBEBD92879D718000DEA21 /* adkross-ios-sdk */,
+				B641126A2880267300601462 /* adkross-ios-sdk */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		B641126B288026FB00601462 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B6BBEBC02879D6E1000DEA21 /* AdkrossExample */ = {
+		B64112512880265900601462 /* AdkrossExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B6BBEBD52879D6E3000DEA21 /* Build configuration list for PBXNativeTarget "AdkrossExample" */;
+			buildConfigurationList = B64112662880265C00601462 /* Build configuration list for PBXNativeTarget "AdkrossExample" */;
 			buildPhases = (
-				B6BBEBBD2879D6E1000DEA21 /* Sources */,
-				B6BBEBBE2879D6E1000DEA21 /* Frameworks */,
-				B6BBEBBF2879D6E1000DEA21 /* Resources */,
+				B641124E2880265900601462 /* Sources */,
+				B641124F2880265900601462 /* Frameworks */,
+				B64112502880265900601462 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = AdkrossExample;
+			packageProductDependencies = (
+				B641126C288026FB00601462 /* adkross-ios-sdk */,
+			);
 			productName = AdkrossExample;
-			productReference = B6BBEBC12879D6E1000DEA21 /* AdkrossExample.app */;
+			productReference = B64112522880265900601462 /* AdkrossExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B6BBEBB92879D6E1000DEA21 /* Project object */ = {
+		B641124A2880265900601462 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					B6BBEBC02879D6E1000DEA21 = {
+					B64112512880265900601462 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
-			buildConfigurationList = B6BBEBBC2879D6E1000DEA21 /* Build configuration list for PBXProject "AdkrossExample" */;
+			buildConfigurationList = B641124D2880265900601462 /* Build configuration list for PBXProject "AdkrossExample" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -120,55 +133,55 @@
 				en,
 				Base,
 			);
-			mainGroup = B6BBEBB82879D6E1000DEA21;
-			productRefGroup = B6BBEBC22879D6E1000DEA21 /* Products */;
+			mainGroup = B64112492880265900601462;
+			productRefGroup = B64112532880265900601462 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B6BBEBC02879D6E1000DEA21 /* AdkrossExample */,
+				B64112512880265900601462 /* AdkrossExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B6BBEBBF2879D6E1000DEA21 /* Resources */ = {
+		B64112502880265900601462 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6BBEBD12879D6E3000DEA21 /* LaunchScreen.storyboard in Resources */,
-				B6BBEBCE2879D6E3000DEA21 /* Assets.xcassets in Resources */,
-				B6BBEBCC2879D6E1000DEA21 /* Main.storyboard in Resources */,
+				B64112622880265C00601462 /* LaunchScreen.storyboard in Resources */,
+				B641125F2880265C00601462 /* Assets.xcassets in Resources */,
+				B641125D2880265900601462 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B6BBEBBD2879D6E1000DEA21 /* Sources */ = {
+		B641124E2880265900601462 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6BBEBC92879D6E1000DEA21 /* ViewController.swift in Sources */,
-				B6BBEBC52879D6E1000DEA21 /* AppDelegate.swift in Sources */,
-				B6BBEBC72879D6E1000DEA21 /* SceneDelegate.swift in Sources */,
+				B641125A2880265900601462 /* ViewController.swift in Sources */,
+				B64112562880265900601462 /* AppDelegate.swift in Sources */,
+				B64112582880265900601462 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B6BBEBCA2879D6E1000DEA21 /* Main.storyboard */ = {
+		B641125B2880265900601462 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B6BBEBCB2879D6E1000DEA21 /* Base */,
+				B641125C2880265900601462 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		B6BBEBCF2879D6E3000DEA21 /* LaunchScreen.storyboard */ = {
+		B64112602880265C00601462 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B6BBEBD02879D6E3000DEA21 /* Base */,
+				B64112612880265C00601462 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -176,7 +189,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B6BBEBD32879D6E3000DEA21 /* Debug */ = {
+		B64112642880265C00601462 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -237,7 +250,7 @@
 			};
 			name = Debug;
 		};
-		B6BBEBD42879D6E3000DEA21 /* Release */ = {
+		B64112652880265C00601462 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -292,7 +305,7 @@
 			};
 			name = Release;
 		};
-		B6BBEBD62879D6E3000DEA21 /* Debug */ = {
+		B64112672880265C00601462 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -319,7 +332,7 @@
 			};
 			name = Debug;
 		};
-		B6BBEBD72879D6E3000DEA21 /* Release */ = {
+		B64112682880265C00601462 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -349,25 +362,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B6BBEBBC2879D6E1000DEA21 /* Build configuration list for PBXProject "AdkrossExample" */ = {
+		B641124D2880265900601462 /* Build configuration list for PBXProject "AdkrossExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6BBEBD32879D6E3000DEA21 /* Debug */,
-				B6BBEBD42879D6E3000DEA21 /* Release */,
+				B64112642880265C00601462 /* Debug */,
+				B64112652880265C00601462 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6BBEBD52879D6E3000DEA21 /* Build configuration list for PBXNativeTarget "AdkrossExample" */ = {
+		B64112662880265C00601462 /* Build configuration list for PBXNativeTarget "AdkrossExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6BBEBD62879D6E3000DEA21 /* Debug */,
-				B6BBEBD72879D6E3000DEA21 /* Release */,
+				B64112672880265C00601462 /* Debug */,
+				B64112682880265C00601462 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B641126C288026FB00601462 /* adkross-ios-sdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "adkross-ios-sdk";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = B6BBEBB92879D6E1000DEA21 /* Project object */;
+	rootObject = B641124A2880265900601462 /* Project object */;
 }
