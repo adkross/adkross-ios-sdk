@@ -5,32 +5,39 @@
 //  Created by Furkan Kaplan on 9.07.2022.
 //
 
-import Foundation
+import UIKit
 
 public protocol AdkrossInterstitialDelegate: AnyObject {
     func adkrossInterstitial(failedWith message: String)
     func adkrossInterstitialLoadedSuccessfully()
+    func adkrossInterstitialAdPresented()
+    func adkrossInterstitialAdDismissed()
+    func adkrossInterstitialAdTapped()
 }
 public class AdkrossInterstitial {
     
-    private weak var delegate: AdkrossInterstitialDelegate?
+    private unowned var delegate: AdkrossInterstitialDelegate
+    private unowned var adkrossInstance: Adkross
     private var instertitialAd: CampaignLoadModel.Response?
     
-    public init(delegate: AdkrossInterstitialDelegate) {
+    public init(
+        delegate: AdkrossInterstitialDelegate,
+        adkrossInstance: Adkross = Adkross.shared)
+    {
         self.delegate = delegate
+        self.adkrossInstance = adkrossInstance
     }
     
     var isInterstitialLoaded: Bool { instertitialAd != nil }
  
     public func load(campaignKey: String? = nil) {
-        Adkross.shared.load(campaignKey: campaignKey) { [weak self] response in
+        adkrossInstance.load(campaignKey: campaignKey) { [weak self] response in
             guard let strongSelf = self else { return }
-            guard let strongDelegate = strongSelf.delegate else { return }
-            
+        
             if let error = response.error {
                 guard let message = error.message else { return }
                 
-                strongDelegate.adkrossInterstitial(failedWith: message)
+                strongSelf.delegate.adkrossInterstitial(failedWith: message)
                 return
             }
             
@@ -38,8 +45,32 @@ public class AdkrossInterstitial {
             
             strongSelf.instertitialAd = responseData
             
-            strongDelegate.adkrossInterstitialLoadedSuccessfully()
+            strongSelf.delegate.adkrossInterstitialLoadedSuccessfully()
+        }
+    }
+    
+    public func present(fromRootViewController containerViewController: UIViewController) {
+        guard let ad = instertitialAd else { return }
+        
+        let instertitialAdViewController = AdkrossInterstitialViewController(adkrossInstance: adkrossInstance, ad: ad, delegate: self)
+        instertitialAdViewController.modalPresentationStyle = .overFullScreen
+        instertitialAdViewController.modalTransitionStyle = .crossDissolve
+        
+        containerViewController.present(instertitialAdViewController, animated: true) {
+            self.delegate.adkrossInterstitialAdPresented()
         }
     }
 
+}
+
+extension AdkrossInterstitial: AdkrossInterstitialViewControllerDelegate {
+    
+    func adkrossInterstitialViewControllerDissmised() {
+        delegate.adkrossInterstitialAdDismissed()
+    }
+    
+    func adkrossInterstitialViewControllerTapped() {
+        delegate.adkrossInterstitialAdTapped()
+    }
+    
 }
