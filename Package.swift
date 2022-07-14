@@ -6,7 +6,6 @@ import PackageDescription
 let package = Package(
     name: "adkross-ios-sdk",
     platforms: [
-        .macOS(.v10_14),
         .iOS(.v12),
     ],
     products: [
