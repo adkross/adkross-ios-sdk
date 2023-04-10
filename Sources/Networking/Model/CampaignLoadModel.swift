@@ -19,5 +19,4 @@ public struct CampaignLoadModel {
         let imageUrl: URL?
         let linkCTA: URL?
     }
-    
 }

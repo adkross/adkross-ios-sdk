@@ -7,10 +7,7 @@
 
 import Foundation
 
-public struct GenericResponse<T: Decodable>: Decodable {
-    
-    var error: ErrorModel?
-    
-    var data: T?
-    
+struct GenericResponse<T: Decodable>: Decodable {
+    let error: ErrorModel?
+    let data: T?
 }

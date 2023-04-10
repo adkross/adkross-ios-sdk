@@ -8,15 +8,11 @@
 import Foundation
 
 protocol Endpoint {
-
     var url: String { get }
-    
     var request: Encodable? { get }
-            
 }
 
 enum AdkrossEndpoint: Endpoint {
-    
     case mainStart(request: MainStartModel.Request)
     case campaingLoad(request: CampaignLoadModel.Request)
     
@@ -37,5 +33,4 @@ enum AdkrossEndpoint: Endpoint {
             return request
         }
     }
-    
 }

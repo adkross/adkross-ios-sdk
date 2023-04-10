@@ -16,48 +16,64 @@ public protocol Logging {
 }
 
 final public class Logger: Logging {
-    
     private let osLog: OSLog
     
-    public init(osLog: OS) {
+    public init(
+        osLog: OS
+    ) {
         self.osLog = OSLog(subsystem: osLog.subsystem, category: osLog.category)
     }
     
-    public func logWith(error message: String) {
+    public func logWith(
+        error message: String
+    ) {
         printLog(type: .error, message: message)
     }
     
-    public func logWith(info message: String) {
+    public func logWith(
+        info message: String
+    ) {
         printLog(type: .info, message: message)
     }
     
-    public func logWith(fault message: String) {
+    public func logWith(
+        fault message: String
+    ) {
         printLog(type: .fault, message: message)
     }
     
-    public func logWith(default message: String) {
+    public func logWith(
+        default message: String
+    ) {
         printLog(type: .default, message: message)
     }
-    
 }
 
 
 extension Logger {
     
     public struct OS {
-        
         let subsystem: String
         let category: String
         
-        public init(subsystem: String, category: String) {
+        public init(
+            subsystem: String,
+            category: String
+        ) {
             self.subsystem = subsystem
             self.category = category
         }
-        
     }
     
-    private func printLog(type: OSLogType, message: String) {
-        os_log(type, log: osLog, "%@", message.logifyEncoder)
+    private func printLog(
+        type: OSLogType,
+        message: String
+    ) {
+        os_log(
+            type,
+            log: osLog,
+            "%@",
+            message.logifyEncoder
+        )
     }
-    
 }

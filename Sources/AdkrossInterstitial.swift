@@ -8,30 +8,37 @@
 import UIKit
 
 public protocol AdkrossInterstitialDelegate: AnyObject {
-    func adkrossInterstitial(failedWith message: String)
+    func adkrossInterstitial(
+        failedWith message: String
+    )
     func adkrossInterstitialLoadedSuccessfully()
     func adkrossInterstitialAdPresented()
     func adkrossInterstitialAdDismissed()
     func adkrossInterstitialAdTapped()
 }
 public class AdkrossInterstitial {
-    
-    private unowned var delegate: AdkrossInterstitialDelegate
-    private unowned var adkrossInstance: Adkross
+    private unowned let delegate: AdkrossInterstitialDelegate
+    private let adkrossInstance: Adkross
     private var instertitialAd: CampaignLoadModel.Response?
     
     public init(
         delegate: AdkrossInterstitialDelegate,
-        adkrossInstance: Adkross = Adkross.shared)
-    {
+        adkrossInstance: Adkross = Adkross.shared
+    ) {
         self.delegate = delegate
         self.adkrossInstance = adkrossInstance
     }
     
-    var isInterstitialLoaded: Bool { instertitialAd != nil }
+    var isInterstitialLoaded: Bool {
+        instertitialAd != nil
+    }
  
-    public func load(campaignKey: String? = nil) {
-        adkrossInstance.load(campaignKey: campaignKey) { [weak self] response in
+    public func load(
+        campaignKey: String? = nil
+    ) {
+        adkrossInstance.load(
+            campaignKey: campaignKey
+        ) { [weak self] response in
             guard let strongSelf = self else { return }
         
             if let error = response.error {
@@ -49,18 +56,26 @@ public class AdkrossInterstitial {
         }
     }
     
-    public func present(fromRootViewController containerViewController: UIViewController) {
+    public func present(
+        fromRootViewController containerViewController: UIViewController
+    ) {
         guard let ad = instertitialAd else { return }
         
-        let instertitialAdViewController = AdkrossInterstitialViewController(adkrossInstance: adkrossInstance, ad: ad, delegate: self)
+        let instertitialAdViewController = AdkrossInterstitialViewController(
+            adkrossInstance: adkrossInstance,
+            ad: ad,
+            delegate: self
+        )
         instertitialAdViewController.modalPresentationStyle = .overFullScreen
         instertitialAdViewController.modalTransitionStyle = .crossDissolve
         
-        containerViewController.present(instertitialAdViewController, animated: true) {
+        containerViewController.present(
+            instertitialAdViewController,
+            animated: true
+        ) {
             self.delegate.adkrossInterstitialAdPresented()
         }
     }
-
 }
 
 extension AdkrossInterstitial: AdkrossInterstitialViewControllerDelegate {
@@ -72,5 +87,4 @@ extension AdkrossInterstitial: AdkrossInterstitialViewControllerDelegate {
     func adkrossInterstitialViewControllerTapped() {
         delegate.adkrossInterstitialAdTapped()
     }
-    
 }

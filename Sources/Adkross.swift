@@ -7,14 +7,12 @@
 
 import Foundation
 
-// MARK: SDK Initialization
+// MARK: - SDK Initialization
 
 public class Adkross {
-    
     private let backend: Backend
-    
     private var token: String?
-    
+
     public static var shared: Adkross {
         guard let adkross = adkross else {
             fatalError("Adkross SDK not initialized")
@@ -22,43 +20,62 @@ public class Adkross {
         
         return adkross
     }
-    
     private static var adkross: Adkross?
     
-    init(backend: Backend) {
+    private init(
+        backend: Backend
+    ) {
         self.backend = backend
     }
+
+    // MARK: -
     
-    static func setDefaultInstance(_ adkross: Adkross) {
+    static func setDefaultInstance(
+        _ adkross: Adkross
+    ) {
         Self.adkross = adkross
     }
-
 }
 
 // MARK: - Configuratiın Adkross
 
 public extension Adkross {
     
-    static func startWith(apiKey: String, appKey: String) {
-        let logger = Logger(osLog: Logger.OS(subsystem: "com.adkross", category: "ios-sdk"))
-        let parser = Parser(logger: logger)
-        let network = HttpClient(apiKey: apiKey,
-                                 appKey: appKey,
-                                 logger: logger,
-                                 parser: parser,
-                                 encoder: JSONEncoder())
-        let backend = Backend(network: network, logger: logger)
-        
-        let adkross = Adkross(backend: backend)
+    static func startWith(
+        apiKey: String,
+        appKey: String
+    ) {
+        let logger = Logger(
+            osLog: Logger.OS(
+                subsystem: "com.adkross",
+                category: "ios-sdk"
+            )
+        )
+        let parser = Parser(
+            logger: logger
+        )
+        let network = HttpClient(
+            apiKey: apiKey,
+            appKey: appKey,
+            logger: logger,
+            parser: parser,
+            encoder: JSONEncoder()
+        )
+        let backend = Backend(
+            network: network,
+            logger: logger
+        )
+        let adkross = Adkross(
+            backend: backend
+        )
                 
         setDefaultInstance(adkross)
     }
-    
 }
 
 // MARK: - Network Calls
 
-public extension Adkross {
+extension Adkross {
     
     func check() {
         backend.check(completion: { token in
@@ -66,8 +83,13 @@ public extension Adkross {
         })
     }
     
-    func load(campaignKey: String? = nil, completion: @escaping(GenericResponse<CampaignLoadModel.Response>) -> Void) {
-        backend.load(campaignKey: campaignKey, completion: completion)
+    func load(
+        campaignKey: String? = nil,
+        completion: @escaping(GenericResponse<CampaignLoadModel.Response>) -> Void
+    ) {
+        backend.load(
+            campaignKey: campaignKey,
+            completion: completion
+        )
     }
-    
 }

@@ -9,11 +9,13 @@ import Foundation
 
 struct HttpHeader {
     
-    static func get(with apiKey: String, appKey: String) -> [String : String] {
+    static func get(
+        with apiKey: String,
+        appKey: String
+    ) -> [String : String] {
         return [
             "API_KEY" : apiKey,
             "APP_KEY" : appKey
         ]
     }
-    
 }

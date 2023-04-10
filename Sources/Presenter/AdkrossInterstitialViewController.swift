@@ -12,7 +12,6 @@ protocol AdkrossInterstitialViewControllerDelegate: AnyObject {
     func adkrossInterstitialViewControllerTapped()
 }
 class AdkrossInterstitialViewController: UIViewController {
-
     @IBOutlet weak var ctaButton: UIButton!
     
     private let adkrossInstance: Adkross
@@ -62,5 +61,4 @@ extension AdkrossInterstitialViewController {
         ctaButton.setTitleColor(.black, for: .normal)
         ctaButton.setTitle("Visit App on App Store", for: .normal)
     }
-    
 }

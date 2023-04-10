@@ -8,12 +8,10 @@
 import Foundation
 
 struct Environment {
-    
     static let host: String = "https://api.adkross.com"
     
     struct Service {
         static let main: String = "/main"
         static let campaing: String = "/campaign"
     }
-    
 }

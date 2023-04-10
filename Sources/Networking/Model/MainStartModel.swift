@@ -9,12 +9,9 @@ import Foundation
 
 struct MainStartModel {
     
-    struct Request: Encodable {
-        
-    }
+    struct Request: Encodable { /* No request required. */ }
     
     struct Response: Decodable {
         var token: String?
     }
-    
 }
