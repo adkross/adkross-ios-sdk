@@ -10,7 +10,7 @@ import Foundation
 public struct CampaignLoadModel {
 
     public struct Request: Encodable {
-        let campaignKey: String?
+        let campaignId: String?
     }
     
     public struct Response: Decodable {

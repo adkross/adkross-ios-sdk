@@ -34,10 +34,10 @@ public class AdkrossInterstitial {
     }
  
     public func load(
-        campaignKey: String? = nil
+        campaignId: String? = nil
     ) {
         adkrossInstance.load(
-            campaignKey: campaignKey
+            campaignId: campaignId
         ) { [weak self] response in
             guard let strongSelf = self else { return }
         

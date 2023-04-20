@@ -31,20 +31,21 @@ struct Backend {
         ) { response in
             switch response {
             case .success(let model):
+                logger.logWith(info: "Adkross SDK started successfully.")
                 completion(model.token)
             case .failure:
                 completion(nil)
-                logger.logWith(error: "Token not received")
+                logger.logWith(error: "Token not received.")
             }
         }
     }
     
     func load(
-        campaignKey: String? = nil,
+        campaignId: String? = nil,
         completion: @escaping(GenericResponse<CampaignLoadModel.Response>) -> Void
     ) {
         let request = CampaignLoadModel.Request(
-            campaignKey: campaignKey
+            campaignId: campaignId
         )
 
         network.request(
@@ -56,11 +57,11 @@ struct Backend {
         ) { response in
             switch response {
             case .success(let model):
+                logger.logWith(info: "Campaign loaded successfully.")
                 completion(model)
             case .failure:
                 logger.logWith(error: "Campaign not loaded properly. Ad will not be shown.")
             }
         }
     }
-    
 }

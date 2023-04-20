@@ -84,11 +84,11 @@ extension Adkross {
     }
     
     func load(
-        campaignKey: String? = nil,
+        campaignId: String? = nil,
         completion: @escaping(GenericResponse<CampaignLoadModel.Response>) -> Void
     ) {
         backend.load(
-            campaignKey: campaignKey,
+            campaignId: campaignId,
             completion: completion
         )
     }
