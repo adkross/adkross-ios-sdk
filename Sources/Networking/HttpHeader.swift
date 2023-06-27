@@ -14,8 +14,8 @@ struct HttpHeader {
         appKey: String
     ) -> [String : String] {
         return [
-            "API_KEY" : apiKey,
-            "APP_KEY" : appKey
+            "apiKey" : apiKey,
+            "appKey" : appKey
         ]
     }
 }

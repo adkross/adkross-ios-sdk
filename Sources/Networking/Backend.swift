@@ -18,49 +18,58 @@ struct Backend {
         self.network = network
         self.logger = logger
     }
-    
-    func check(
-        completion: @escaping (String?) -> Void
-    ) {
-        network.request(
-            endpoint: AdkrossEndpoint.mainStart(
-                request: MainStartModel.Request()
-            ),
-            requestType: MainStartModel.Request.self,
-            responseType: MainStartModel.Response.self
-        ) { response in
-            switch response {
-            case .success(let model):
-                logger.logWith(info: "Adkross SDK started successfully.")
-                completion(model.token)
-            case .failure:
-                completion(nil)
-                logger.logWith(error: "Token not received.")
-            }
-        }
-    }
-    
+}
+
+// MARK: - Network Calls
+
+extension Backend {
+
     func load(
-        campaignId: String? = nil,
-        completion: @escaping(GenericResponse<CampaignLoadModel.Response>) -> Void
+        campaignKey: String? = nil,
+        completion: @escaping NetworkResult<CampaignLoad.Response>
     ) {
-        let request = CampaignLoadModel.Request(
-            campaignId: campaignId
+        let request = CampaignLoad.Request(
+            campaignKey: campaignKey
         )
 
         network.request(
             endpoint: AdkrossEndpoint.campaingLoad(
                 request: request
             ),
-            requestType: CampaignLoadModel.Request.self,
-            responseType: GenericResponse<CampaignLoadModel.Response>.self
+            requestType: CampaignLoad.Request.self,
+            responseType: CampaignLoad.Response.self
         ) { response in
             switch response {
             case .success(let model):
-                logger.logWith(info: "Campaign loaded successfully.")
-                completion(model)
-            case .failure:
-                logger.logWith(error: "Campaign not loaded properly. Ad will not be shown.")
+                completion(.success(model))
+            case .failure(let message):
+                completion(.failure(message))
+            }
+        }
+    }
+
+    func fireEvent(
+        campaignKey: String,
+        analyticEventType: EventType,
+        completion: @escaping NetworkResult<FireEvent.Response>
+    ) {
+        let request = FireEvent.Request(
+            analyticEventType: analyticEventType,
+            campaignKey: campaignKey
+        )
+
+        network.request(
+            endpoint: AdkrossEndpoint.fireEvent(
+                request: request
+            ),
+            requestType: FireEvent.Request.self,
+            responseType: FireEvent.Response.self
+        ) { response in
+            switch response {
+            case .success(let model):
+                completion(.success(model))
+            case .failure(let message):
+                completion(.failure(message))
             }
         }
     }

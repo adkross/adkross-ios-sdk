@@ -9,17 +9,5 @@ import Foundation
 import Alamofire
 
 struct ErrorModel: Decodable, Error {
-    let code: ErrorCode?
     let message: String?
-}
-
-enum ErrorCode: String, Decodable {
-    // Request has invalid api key or app key to start SDK.
-    case unauthorized = "UNAUTHORIZED"
-    
-    // Membership payments must be done regularly according its period. Customer sees `membershipExpire` if payment is not proceed and notice period passes.
-    case membershipExpired = "MEMBERSHIP_EXPIRED"
-    
-    // Expected operation in API, for example ad click is not inserted by the database query, couldn't be done correctly because of some reason.
-    case notOperated = "NOT_OPERATED"
 }

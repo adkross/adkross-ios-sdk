@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-typealias NetworkResult<T: Decodable> = (Result<T, Error>) -> Void
+typealias NetworkResult<T: Decodable> = (Result<T, String>) -> Void
 
 protocol Networking {
     func request<EndPointItem: Endpoint, ResponseModel: Decodable, RequestModel: Encodable>(
@@ -59,6 +59,12 @@ class HttpClient: Networking {
                 appKey: appKey
             )
         )
+
+        logger.logWith(info: "*** HEADER ***")
+        logger.logWith(info: "\(header.dictionary)")
+
+        logger.logWith(info: "*** REQUEST ***")
+        logger.logWith(info: "\(endpoint.request)")
         
         session.request(
             "\(endpoint.url)",
@@ -67,39 +73,28 @@ class HttpClient: Networking {
             encoder: .json(encoder: encoder),
             headers: header)
         .validate()
-        .responseData(completionHandler: { responseData in
-            if let error = responseData.error {
-                self.logger.logWith(error: error.localizedDescription)
-                
-                DispatchQueue.main.async {
-                    
-                    completion(.failure(error))
+        .responseData(completionHandler: { dataResponse in
+            switch dataResponse.result {
+            case .success(let data):
+                self.parser.parseResponse(
+                    data: data,
+                    forType: ResponseModel.self
+                ) { response in
+                    self.logger.logWith(info: data.prettyPrinted())
+                    completion(.success(response))
                 }
-                return
-            }
-            
-            guard responseData.data != nil else {
-                self.logger.logWith(fault: "Response data is nil!")
-                
-                DispatchQueue.main.async {
-                    completion(.failure(AFError.responseValidationFailed(reason: .dataFileNil)))
-                }
-                return
-            }
-            
-            self.parser.parseResponse(data: responseData.data!, forType: ResponseModel.self) { parsedResponse in
-                self.logger.logWith(info: responseData.data!.prettyPrinted())
-                
-                if let error = parsedResponse.error {
-                    completion(.failure(error))
+            case .failure:
+                guard let body = dataResponse.data else {
                     return
                 }
-                
-                DispatchQueue.main.async {
-                    completion(.success(parsedResponse.data!))
+
+                self.parser.parseResponse(
+                    data: body,
+                    forType: ErrorModel.self
+                ) { parsedResponse in
+                    self.logger.logWith(error: body.prettyPrinted())
+                    completion(.failure(parsedResponse.message ?? "We cannot operate your request now. Please try again later!"))
                 }
-                
-                return
             }
         })
     }

@@ -13,23 +13,23 @@ protocol Endpoint {
 }
 
 enum AdkrossEndpoint: Endpoint {
-    case mainStart(request: MainStartModel.Request)
-    case campaingLoad(request: CampaignLoadModel.Request)
+    case campaingLoad(request: CampaignLoad.Request)
+    case fireEvent(request: FireEvent.Request)
     
     var url: String {
         switch self {
-        case .mainStart:
-            return "\(Environment.host)\(Environment.Service.main)/start"
         case .campaingLoad:
-            return "\(Environment.host)\(Environment.Service.campaing)/load"
+            return "\(Environment.host)\(Environment.Service.load)"
+        case .fireEvent:
+            return "\(Environment.host)\(Environment.Service.fireEvent)"
         }
     }
     
     var request: Encodable? {
         switch self {
-        case .mainStart:
-            return nil
         case .campaingLoad(let request):
+            return request
+        case .fireEvent(request: let request):
             return request
         }
     }

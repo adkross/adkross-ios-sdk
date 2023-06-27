@@ -8,11 +8,10 @@
 import Foundation
 
 struct Environment {
-    static let host: String = "https://api.adkross.com/sdk"
+    static let host: String = "http://localhost:8080/sdk" // "https://api.adkross.com/sdk"
     
     struct Service {
-        static let main: String = "/main"
-        static let campaing: String = "/campaign"
+        static let load: String = "/load"
         static let fireEvent: String = "/fire-event"
     }
 }
