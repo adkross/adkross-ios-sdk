@@ -77,18 +77,24 @@ public extension Adkross {
 
 extension Adkross {
     
-    func check() {
-        backend.check(completion: { token in
-            self.token = token
-        })
-    }
-    
     func load(
-        campaignId: String? = nil,
-        completion: @escaping(GenericResponse<CampaignLoadModel.Response>) -> Void
+        campaignKey: String? = nil,
+        completion: @escaping NetworkResult<CampaignLoad.Response>
     ) {
         backend.load(
-            campaignId: campaignId,
+            campaignKey: campaignKey,
+            completion: completion
+        )
+    }
+
+    func fireEvent(
+        campaignKey: String,
+        analyticEventType: EventType,
+        completion: @escaping NetworkResult<FireEvent.Response>
+    ) {
+        backend.fireEvent(
+            campaignKey: campaignKey,
+            analyticEventType: analyticEventType,
             completion: completion
         )
     }
