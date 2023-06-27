@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import adkross_ios_sdk
+import Adkross
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
