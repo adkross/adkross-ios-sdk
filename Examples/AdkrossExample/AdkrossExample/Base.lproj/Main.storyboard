@@ -20,11 +20,18 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="400B" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-vR-zF7">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cya-rA-CQI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="char" translatesAutoresizingMaskIntoConstraints="NO" id="Cno-Mt-nJn">
+                                <rect key="frame" x="60" y="109" width="50" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="8xZ-i5-41h"/>
+                                    <constraint firstAttribute="width" constant="50" id="ItN-Kg-EDo"/>
+                                </constraints>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cya-rA-CQI">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKu-Gw-pix">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKu-Gw-pix">
                                 <rect key="frame" x="20" y="259" width="353" height="167.33333333333337"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <string key="text">MISSION
@@ -33,7 +40,7 @@ FAILED!</string>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6U-DH-V4v">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6U-DH-V4v">
                                 <rect key="frame" x="119.66666666666669" y="446.33333333333331" width="154" height="36"/>
                                 <color key="backgroundColor" red="0.29019607843137252" green="0.75294117647058822" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -45,7 +52,7 @@ FAILED!</string>
                                     <action selector="keepContinueButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9I1-qY-7ZM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8O-He-CUg">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8O-He-CUg">
                                 <rect key="frame" x="119.66666666666669" y="500.33333333333326" width="154" height="36"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
@@ -63,9 +70,11 @@ FAILED!</string>
                             <constraint firstItem="C8O-He-CUg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Jfe-f2-T7E"/>
                             <constraint firstItem="PFu-vR-zF7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KxR-Lj-pxB"/>
                             <constraint firstItem="C8O-He-CUg" firstAttribute="width" secondItem="q6U-DH-V4v" secondAttribute="width" id="MhT-zL-uqG"/>
+                            <constraint firstItem="Cno-Mt-nJn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="NhC-Fz-aYr"/>
                             <constraint firstItem="oKu-Gw-pix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R2d-pn-Y0H"/>
                             <constraint firstItem="Cya-rA-CQI" firstAttribute="bottom" secondItem="PFu-vR-zF7" secondAttribute="bottom" id="RoJ-eo-0xK"/>
                             <constraint firstItem="Cya-rA-CQI" firstAttribute="trailing" secondItem="PFu-vR-zF7" secondAttribute="trailing" id="Sze-OO-jrz"/>
+                            <constraint firstItem="Cno-Mt-nJn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="Zcq-kD-jP0"/>
                             <constraint firstAttribute="bottom" secondItem="PFu-vR-zF7" secondAttribute="bottom" id="cIP-UN-Msk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oKu-Gw-pix" secondAttribute="trailing" constant="20" id="dha-k2-WKh"/>
                             <constraint firstItem="Cya-rA-CQI" firstAttribute="top" secondItem="PFu-vR-zF7" secondAttribute="top" id="ihb-Ea-VQY"/>
@@ -75,6 +84,13 @@ FAILED!</string>
                             <constraint firstItem="Cya-rA-CQI" firstAttribute="leading" secondItem="PFu-vR-zF7" secondAttribute="leading" id="wYW-zh-3zA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="charachterLeadingConstraint" destination="NhC-Fz-aYr" id="ArR-M0-TG8"/>
+                        <outlet property="keepContinueButton" destination="q6U-DH-V4v" id="w7h-nB-VWK"/>
+                        <outlet property="missionFailedLabel" destination="oKu-Gw-pix" id="1wv-nH-v7L"/>
+                        <outlet property="startAgainButton" destination="C8O-He-CUg" id="5rQ-Ue-vaA"/>
+                        <outlet property="transparentView" destination="Cya-rA-CQI" id="qNv-3a-2eN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,9 +99,7 @@ FAILED!</string>
     </scenes>
     <resources>
         <image name="400B" width="800" height="800"/>
-        <systemColor name="placeholderTextColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="char" width="600" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
