@@ -64,7 +64,7 @@ class HttpClient: Networking {
         logger.logWith(info: "\(header.dictionary)")
 
         logger.logWith(info: "*** REQUEST ***")
-        logger.logWith(info: "\(endpoint.request)")
+        logger.logWith(info: "\(endpoint.request ?? "")")
         
         session.request(
             "\(endpoint.url)",
