@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 struct Backend {
     private let network: Networking
@@ -41,6 +42,11 @@ extension Backend {
         ) { response in
             switch response {
             case .success(let model):
+                guard let resource = model.campaign?.campaignImageUrl else {
+                    logger.logWith(error: "CampaignImageUrl is nil. Campaign not loaded properly.")
+                    return
+                }
+                KingfisherManager.shared.retrieveImage(with: resource, completionHandler: nil)
                 completion(.success(model))
             case .failure(let message):
                 completion(.failure(message))
