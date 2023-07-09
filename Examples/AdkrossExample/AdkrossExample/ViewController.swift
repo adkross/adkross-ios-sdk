@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func keepContinueButtonTapped(_ sender: Any) {
-        self.adkross.present(fromRootViewController: self)
+        adkross.present()
     }
 }
 

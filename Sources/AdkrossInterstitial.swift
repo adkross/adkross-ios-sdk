@@ -67,10 +67,10 @@ public class AdkrossInterstitial {
         }
     }
     
-    public func present(
-        fromRootViewController containerViewController: UIViewController
-    ) {
-        guard let ad = instertitialAd else {
+    public func present() {
+        guard let ad = instertitialAd,
+              let containerViewController = delegate as? UIViewController
+        else {
             return
         }
 
