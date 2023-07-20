@@ -8,7 +8,7 @@
 import Foundation
 
 struct Environment {
-    static let host: String = "http://localhost:8080/sdk" // "https://api.adkross.com/sdk"
+    static let host: String = "https://api.adkross-sdk.com/sdk"
     
     struct Service {
         static let load: String = "/load"

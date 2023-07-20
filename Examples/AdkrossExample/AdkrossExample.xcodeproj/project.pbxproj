@@ -13,6 +13,7 @@
 		B641125D2880265900601462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B641125B2880265900601462 /* Main.storyboard */; };
 		B641125F2880265C00601462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B641125E2880265C00601462 /* Assets.xcassets */; };
 		B64112622880265C00601462 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B64112602880265C00601462 /* LaunchScreen.storyboard */; };
+		B6CEE14B2A69126B00EAB0C1 /* Adkross in Frameworks */ = {isa = PBXBuildFile; productRef = B6CEE14A2A69126B00EAB0C1 /* Adkross */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CEE14B2A69126B00EAB0C1 /* Adkross in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +94,7 @@
 			);
 			name = AdkrossExample;
 			packageProductDependencies = (
+				B6CEE14A2A69126B00EAB0C1 /* Adkross */,
 			);
 			productName = AdkrossExample;
 			productReference = B64112522880265900601462 /* AdkrossExample.app */;
@@ -121,6 +124,9 @@
 				Base,
 			);
 			mainGroup = B64112492880265900601462;
+			packageReferences = (
+				B6CEE1492A69126B00EAB0C1 /* XCRemoteSwiftPackageReference "adkross-ios-sdk" */,
+			);
 			productRefGroup = B64112532880265900601462 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -368,6 +374,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B6CEE1492A69126B00EAB0C1 /* XCRemoteSwiftPackageReference "adkross-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adkross/adkross-ios-sdk.git";
+			requirement = {
+				branch = v1.0.0;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B6CEE14A2A69126B00EAB0C1 /* Adkross */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6CEE1492A69126B00EAB0C1 /* XCRemoteSwiftPackageReference "adkross-ios-sdk" */;
+			productName = Adkross;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B641124A2880265900601462 /* Project object */;
 }

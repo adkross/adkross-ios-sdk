@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Adkross.startWith(
-            apiKey: "d7c331ae-9b4c-4e8a-a953-129760fce5f0",
-            appKey: "20076c52-daa4-48f0-a971-b112091f35ad"
+            apiKey: "YOUR_API_KEY",
+            appKey: "YOUR_APP_KEY"
         )
         
         return true
