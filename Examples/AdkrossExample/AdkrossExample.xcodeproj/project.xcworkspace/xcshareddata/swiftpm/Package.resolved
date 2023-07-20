@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "adkross-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adkross/adkross-ios-sdk.git",
+      "state" : {
+        "branch" : "v1.0.0",
+        "revision" : "4d345c574710ea1290fae4019305487c1b3a5ea2"
+      }
+    },
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire",
+      "state" : {
+        "revision" : "bc268c28fb170f494de9e9927c371b8342979ece",
+        "version" : "5.7.1"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher",
+      "state" : {
+        "revision" : "c1f60c63f356d364f4284ba82961acbe7de79bcc",
+        "version" : "7.8.1"
+      }
+    }
+  ],
+  "version" : 2
+}
