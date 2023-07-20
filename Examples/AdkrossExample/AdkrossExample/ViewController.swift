@@ -59,7 +59,7 @@ extension ViewController: AdkrossInterstitialDelegate {
     }
 
     func adkrossInterstitial(failedWith message: String) {
-        print("adkrossInterstitial(failedWith message: \(message)")
+        print("adkrossInterstitial(failedWith message: \(message))")
     }
 
     func adkrossInterstitialLoadedSuccessfully() {

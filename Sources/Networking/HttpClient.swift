@@ -49,8 +49,6 @@ class HttpClient: Networking {
         responseType: ResponseModel.Type,
         completion: @escaping NetworkResult<ResponseModel>
     ) where ResponseModel: Decodable, RequestModel: Encodable, EndPointItem: Endpoint {
-        logger.logWith(info: "Network call for url: \(endpoint.url)")
-        
         encoder.dateEncodingStrategy = .iso8601
         
         let header = HTTPHeaders(
@@ -60,12 +58,6 @@ class HttpClient: Networking {
             )
         )
 
-        logger.logWith(info: "*** HEADER ***")
-        logger.logWith(info: "\(header.dictionary)")
-
-        logger.logWith(info: "*** REQUEST ***")
-        logger.logWith(info: "\(endpoint.request ?? "")")
-        
         session.request(
             "\(endpoint.url)",
             method: .post,
@@ -80,7 +72,6 @@ class HttpClient: Networking {
                     data: data,
                     forType: ResponseModel.self
                 ) { response in
-                    self.logger.logWith(info: data.prettyPrinted())
                     completion(.success(response))
                 }
             case .failure:
@@ -92,7 +83,6 @@ class HttpClient: Networking {
                     data: body,
                     forType: ErrorModel.self
                 ) { parsedResponse in
-                    self.logger.logWith(error: body.prettyPrinted())
                     completion(.failure(parsedResponse.message ?? "We cannot operate your request now. Please try again later!"))
                 }
             }
