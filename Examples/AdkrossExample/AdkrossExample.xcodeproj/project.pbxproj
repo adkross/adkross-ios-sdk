@@ -13,7 +13,6 @@
 		B641125D2880265900601462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B641125B2880265900601462 /* Main.storyboard */; };
 		B641125F2880265C00601462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B641125E2880265C00601462 /* Assets.xcassets */; };
 		B64112622880265C00601462 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B64112602880265C00601462 /* LaunchScreen.storyboard */; };
-		B646855C2A4B12EC00D81D4B /* Adkross in Frameworks */ = {isa = PBXBuildFile; productRef = B646855B2A4B12EC00D81D4B /* Adkross */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		B641125E2880265C00601462 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B64112612880265C00601462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B64112632880265C00601462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B641126A2880267300601462 /* adkross-ios-sdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "adkross-ios-sdk"; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +31,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B646855C2A4B12EC00D81D4B /* Adkross in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +40,6 @@
 		B64112492880265900601462 = {
 			isa = PBXGroup;
 			children = (
-				B64112692880267300601462 /* Packages */,
 				B64112542880265900601462 /* AdkrossExample */,
 				B64112532880265900601462 /* Products */,
 				B641126B288026FB00601462 /* Frameworks */,
@@ -72,14 +68,6 @@
 			path = AdkrossExample;
 			sourceTree = "<group>";
 		};
-		B64112692880267300601462 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				B641126A2880267300601462 /* adkross-ios-sdk */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		B641126B288026FB00601462 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +92,6 @@
 			);
 			name = AdkrossExample;
 			packageProductDependencies = (
-				B646855B2A4B12EC00D81D4B /* Adkross */,
 			);
 			productName = AdkrossExample;
 			productReference = B64112522880265900601462 /* AdkrossExample.app */;
@@ -381,13 +368,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B646855B2A4B12EC00D81D4B /* Adkross */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Adkross;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B641124A2880265900601462 /* Project object */;
 }
