@@ -28,15 +28,18 @@ public extension AdkrossInterstitialDelegate {
 }
 
 public class AdkrossInterstitial {
-    private unowned let delegate: AdkrossInterstitialDelegate
+    public weak var delegate: AdkrossInterstitialDelegate?
+
     private let adkrossInstance: Adkross
     private var instertitialAd: CampaignLoad.Response?
+
+    public init() {
+        adkrossInstance = Adkross.shared
+    }
     
-    public init(
-        delegate: AdkrossInterstitialDelegate,
-        adkrossInstance: Adkross = Adkross.shared
+    init(
+        adkrossInstance: Adkross
     ) {
-        self.delegate = delegate
         self.adkrossInstance = adkrossInstance
     }
     
@@ -50,17 +53,17 @@ public class AdkrossInterstitial {
         adkrossInstance.load(
             campaignKey: campaignKey
         ) { [weak self] response in
-            guard let self = self else {
+            guard let self else {
                 return
             }
 
             switch response {
             case .success(let model):
                 self.instertitialAd = model
-                self.delegate.adkrossInterstitialLoadedSuccessfully()
+                self.delegate?.adkrossInterstitialLoadedSuccessfully()
                 self.fireEvent(with: .LOAD)
             case .failure(let message):
-                self.delegate.adkrossInterstitial(
+                self.delegate?.adkrossInterstitial(
                     failedWith: message
                 )
             }
@@ -85,7 +88,7 @@ public class AdkrossInterstitial {
             instertitialAdViewController,
             animated: true
         ) {
-            self.delegate.adkrossInterstitialAdPresented()
+            self.delegate?.adkrossInterstitialAdPresented()
             self.fireEvent(with: .DISPLAY)
         }
     }
@@ -94,24 +97,24 @@ public class AdkrossInterstitial {
 extension AdkrossInterstitial: AdkrossInterstitialViewControllerDelegate {
 
     func adkrossInterstitialViewControllerDissmised() {
-        delegate.adkrossInterstitialAdDismissed()
+        delegate?.adkrossInterstitialAdDismissed()
     }
     
     func adkrossInterstitialViewControllerTapped() {
-        delegate.adkrossInterstitialAdTapped()
+        delegate?.adkrossInterstitialAdTapped()
     }
 
     func adkrossInterstitialAdFired(
         with event: EventType
     ) {
-        delegate.adkrossInterstitialAdFired(with: event)
+        delegate?.adkrossInterstitialAdFired(with: event)
     }
 
     func adkrossInterstitialAdFiredFailed(
         with message: String,
         evenType: EventType
     ) {
-        delegate.adkrossInterstitialAdFiredFailed(
+        delegate?.adkrossInterstitialAdFiredFailed(
             with: message,
             evenType: evenType
         )
@@ -139,11 +142,11 @@ extension AdkrossInterstitial {
 
             switch result {
             case .success:
-                self.delegate.adkrossInterstitialAdFired(
+                self.delegate?.adkrossInterstitialAdFired(
                     with: event
                 )
             case .failure(let message):
-                self.delegate.adkrossInterstitialAdFiredFailed(
+                self.delegate?.adkrossInterstitialAdFiredFailed(
                     with: message,
                     evenType: event
                 )
