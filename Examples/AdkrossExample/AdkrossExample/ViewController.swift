@@ -19,7 +19,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        adkross = AdkrossInterstitial(delegate: self)
+        adkross = AdkrossInterstitial()
+        adkross.delegate = self
         adkross.load()
     }
 
@@ -78,4 +79,3 @@ extension ViewController: AdkrossInterstitialDelegate {
         print("adkrossInterstitialAdDismissed")
     }
 }
-
